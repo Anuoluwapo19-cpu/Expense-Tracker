@@ -52,7 +52,9 @@ const currentMonth = String(currentDate.getMonth() + 1).padStart(2, "0");
 
 const currentYear = currentDate.getFullYear();
 
-monthSelect.value = currentMonth;
+if (monthSelect) {
+  monthSelect.value = currentMonth;
+}
 
 function getSelectedMonth() {
   return `${currentYear}-${monthSelect.value}`;
@@ -73,8 +75,17 @@ function updateMonthlySummary() {
 
   const monthlyTransactions = getMonthlyTransactions();
 
-  // GET MONTHLY INCOME
-  const income = Number(monthlyIncomes[selectedMonth] || 0);
+  // GET MONTHLY INCOME FROM BOTH SOURCES
+  
+const setMonthlyIncome = Number(monthlyIncomes[selectedMonth] || 0);
+
+const transactionIncome = monthlyTransactions
+  .filter((transaction) => transaction.type === "income")
+  .reduce((total, transaction) => {
+    return total + Number(transaction.amount);
+  }, 0);
+
+const income = setMonthlyIncome + transactionIncome;
 
   // CALCULATE EXPENSES
   const expenses = monthlyTransactions

@@ -1,3 +1,4 @@
+
 // ======================================
 // HEADER
 // ======================================
@@ -79,10 +80,10 @@ if (setIncomeBtn) {
 
     const income = Number(incomeInput);
 
-    if (incomeInput.trim() === "" || !Number.isFinite(income) || income < 0) {
-      alert("Please enter a valid income.");
-      return;
-    }
+    // if (incomeInput.trim() === "" || !Number.isFinite(income) || income < 0) {
+    //   alert("Please enter a valid income.");
+    //   return;
+    // }
 
     monthlyIncomes[selectedMonth] = income;
 
@@ -106,35 +107,48 @@ const totalExpensesDisplay = document.getElementById("totalExpenses");
 const remainingBalanceDisplay = document.getElementById("remainingBalance");
 
 function updateSummary() {
+  
+  transactions = JSON.parse(localStorage.getItem("transactions")) || [];
+
   const selectedMonth = getSelectedMonth();
-
-  const income = Number(monthlyIncomes[selectedMonth] || 0);
-
   const monthlyTransactions = transactions.filter((transaction) => {
     return transaction.date && transaction.date.startsWith(selectedMonth);
   });
 
-  // Calculate expenses
+  // CALCULATE INCOME FROM INCOME TRANSACTIONS
+  const transactionIncome = monthlyTransactions
+    .filter((transaction) => transaction.type === "income")
+    .reduce((total, transaction) => {
+      return total + Number(transaction.amount);
+    }, 0);
+
+  // GET MANUALLY SET MONTHLY INCOME
+  const setMonthlyIncome = Number(monthlyIncomes[selectedMonth] || 0);
+
+  // CALCULATE TOTAL INCOME
+  const income = setMonthlyIncome + transactionIncome;
+
+    // CALCULATE EXPENSES
   const expenses = monthlyTransactions
     .filter((transaction) => transaction.type === "expense")
     .reduce((total, transaction) => {
       return total + Number(transaction.amount);
     }, 0);
 
-  // Calculate balance
+  // CALCULATE BALANCE
   const balance = income - expenses;
 
-  // Display income
+  // DISPLAY INCOME
   if (monthlyIncomeDisplay) {
     monthlyIncomeDisplay.textContent = formatCurrency(income);
   }
 
-  // Display expenses
+  // DISPLAY EXPENSES
   if (totalExpensesDisplay) {
     totalExpensesDisplay.textContent = formatCurrency(expenses);
   }
 
-  // Display balance
+  // DISPLAY BALANCE
   if (remainingBalanceDisplay) {
     remainingBalanceDisplay.textContent = formatCurrency(balance);
   }
@@ -181,6 +195,11 @@ if (transactionForm) {
     const description = document.getElementById("transactionDescription").value;
     const amount = Number(document.getElementById("transactionAmount").value);
     const date = document.getElementById("transactionDate").value;
+
+    if (!type || !category || !description.trim() || !date || amount <= 0) {
+      alert("Please fill in all fields correctly.");
+      return;
+    }
 
     const newTransaction = {
       id: Date.now(),
