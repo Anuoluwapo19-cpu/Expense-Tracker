@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/yearly.css" />
+    <title>Transaction</title>
+  </head>
+  <body>
+    <header class="header">
+      <div class="logo">
+        <h2>Expense<span>Tracker</span></h2>
+      </div>
+
+      <nav class="navbar">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="transactions.html" class="nav-link active">Transactions</a>
+        <a href="monthly.html" class="nav-link">Monthly Overview</a>
+        <a href="yearly.html" class="nav-link">Yearly Overview</a>
+      </nav>
+      <div class="header-actions">
+        <select class="currency-select" id="currencySelect">
+          <option value="NGN">₦ NGN</option>
+          <option value="USD">$ USD</option>
+          <option value="GBP">£ GBP</option>
+          <option value="EUR">€ EUR</option>
+          <option value="GHS">₵ GHS</option>
+          <option value="KES">KSh KES</option>
+        </select>
+
+        <div class="profile">A</div>
+      </div>
+    </header>
+    <main class="yearly-container">
+      <section class="yearly-header">
+        <div>
+          <h1>Yearly Overview</h1>
+          <p>Review your income and expenses throughout the year.</p>
+        </div>
+
+        <select id="yearSelect" class="year-select"></select>
+      </section>
+
+      <!-- SUMMARY CARDS -->
+      <section class="yearly-summary">
+        <div class="yearly-card income-card">
+          <p>Total Income</p>
+          <h2 id="yearlyIncome">₦0.00</h2>
+        </div>
+
+        <div class="yearly-card expense-card">
+          <p>Total Expenses</p>
+          <h2 id="yearlyExpenses">₦0.00</h2>
+        </div>
+
+        <div class="yearly-card balance-card">
+          <p>Net Balance</p>
+          <h2 id="yearlyBalance">₦0.00</h2>
+        </div>
+      </section>
+
+      <!-- MONTHLY BREAKDOWN -->
+      <section class="yearly-breakdown">
+        <div class="yearly-section-header">
+          <h2>Monthly Breakdown</h2>
+          <p>See how your income and expenses change each month.</p>
+        </div>
+
+        <div id="monthlyBreakdown" class="yearly-month-list"></div>
+      </section>
+    </main>
+
+    <script src="js/yearly.js"></script>
+  </body>
+</html>

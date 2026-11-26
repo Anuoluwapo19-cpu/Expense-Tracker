@@ -1,0 +1,192 @@
+.transactions-section {
+  margin-top: 30px;
+  padding: 25px;
+  background: #ffffff;
+  border-radius: 16px;
+  border: 1px solid #eee7fa;
+  box-shadow: 0 4px 15px rgba(41, 33, 59, 0.05);
+}
+
+.transactions-header {
+  margin-bottom: 20px;
+}
+
+.transactions-header h2 {
+  margin: 0 0 8px;
+  color: #2c1e4a;
+  font-size: 22px;
+  font-weight: 600;
+}
+
+.transactions-header p {
+  margin: 0;
+  color: #888399;
+  font-size: 14px;
+}
+
+.transaction-filters {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.filter-btn {
+  padding: 10px 20px;
+  border: 1px solid #e8e0f3;
+  background: #ffffff;
+  color: #6b617d;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 500;
+  transition: all 0.2s ease;
+}
+
+.filter-btn:hover {
+  background: #f5f0ff;
+  color: #5b3b91;
+  border-color: #d8c8f0;
+}
+
+.filter-btn.active {
+  background: #2c1e4a;
+  color: #ffffff;
+  border-color: #2c1e4a;
+}
+
+.transactions-table-container {
+  width: 100%;
+  overflow-x: auto;
+  border-radius: 10px;
+}
+
+.transactions-table {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 650px;
+}
+
+.transactions-table thead {
+  background: #2c1e4a;
+  color: #ffffff;
+}
+
+.transactions-table th {
+  padding: 16px;
+  text-align: left;
+  font-size: 14px;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.transactions-table td {
+  padding: 16px;
+  border-bottom: 1px solid #eee7fa;
+  color: #36313f;
+  font-size: 14px;
+  white-space: nowrap;
+}
+
+.transactions-table tbody tr {
+  transition: background 0.2s ease;
+}
+
+.transactions-table tbody tr:hover {
+  background: #f8f5ff;
+}
+
+.transactions-table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+.income-text {
+  color: #21875a;
+  font-weight: 600;
+}
+
+.expense-text {
+  color: #d65a76;
+  font-weight: 600;
+}
+
+.empty-transactions {
+  text-align: center;
+  padding: 30px !important;
+  color: #888399 !important;
+}
+
+/* ======================================
+   TRANSACTION ACTION BUTTONS
+====================================== */
+
+.actions-cell {
+  white-space: nowrap;
+}
+
+.edit-btn,
+.delete-btn {
+  border: none;
+  padding: 8px 13px;
+  border-radius: 8px;
+  font-size: 13px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: 0.3s ease;
+  margin-right: 6px;
+}
+
+.edit-btn {
+  background: #eee8ff;
+  color: #6d45c5;
+}
+
+.edit-btn:hover {
+  background: #dcd0ff;
+}
+
+.delete-btn {
+  background: #ffe8eb;
+  color: #d6455d;
+}
+
+.delete-btn:hover {
+  background: #ffd2d9;
+}
+
+/* ===== RESPONSIVE DESIGN ===== */
+@media (max-width: 600px) {
+  .transactions-section {
+    padding: 18px;
+  }
+
+  .transactions-header h2 {
+    font-size: 19px;
+  }
+
+  .transaction-filters {
+    gap: 8px;
+    flex-wrap: wrap;
+  }
+
+  .filter-btn {
+    padding: 9px 15px;
+    font-size: 13px;
+  }
+
+  .transactions-table th,
+  .transactions-table td {
+    padding: 12px;
+    font-size: 13px;
+  }
+  .actions-cell {
+    display: flex;
+    gap: 5px;
+  }
+
+  .edit-btn,
+  .delete-btn {
+    padding: 7px 10px;
+    font-size: 12px;
+  }
+}

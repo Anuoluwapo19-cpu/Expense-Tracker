@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/transaction.css" />
+    <title>Transaction</title>
+  </head>
+  <body>
+    <header class="header">
+      <div class="logo">
+        <h2>Expense<span>Tracker</span></h2>
+      </div>
+
+      <nav class="navbar">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="transactions.html" class="nav-link active">Transactions</a>
+        <a href="monthly.html" class="nav-link">Monthly Overview</a>
+        <a href="yearly.html" class="nav-link">Yearly Overview</a>
+      </nav>
+      <div class="header-actions">
+        <select class="currency-select" id="currencySelect">
+          <option value="NGN">₦ NGN</option>
+          <option value="USD">$ USD</option>
+          <option value="GBP">£ GBP</option>
+          <option value="EUR">€ EUR</option>
+          <option value="GHS">₵ GHS</option>
+          <option value="KES">KSh KES</option>
+        </select>
+
+        <div class="profile">A</div>
+      </div>
+    </header>
+    <main>
+      <!-- TRANSACTIONS -->
+      <section class="transactions-section">
+        <div class="transactions-header">
+          <h2>Transactions</h2>
+          <p>View all your recorded transactions.</p>
+        </div>
+
+        <!-- TRANSACTION FILTERS -->
+        <div class="transaction-filters">
+          <button type="button" class="filter-btn active" data-filter="all">
+            All
+          </button>
+
+          <button type="button" class="filter-btn" data-filter="income">
+            Income
+          </button>
+
+          <button type="button" class="filter-btn" data-filter="expense">
+            Expenses
+          </button>
+        </div>
+
+        <!-- TRANSACTION TABLE -->
+        <div class="transactions-table-container">
+          <table class="transactions-table">
+            <thead>
+              <tr>
+                <th>Date</th>
+                <th>Description</th>
+                <th>Category</th>
+                <th>Type</th>
+                <th>Amount</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+
+            <tbody id="transactionsTableBody">
+              <!-- JavaScript will display transactions here -->
+            </tbody>
+          </table>
+        </div>
+      </section>
+    </main>
+
+    <script src="js/transactions.js"></script>
+  </body>
+</html>

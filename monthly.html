@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/monthly.css" />
+    <title>Transaction</title>
+  </head>
+  <body>
+    <header class="header">
+      <div class="logo">
+        <h2>Expense<span>Tracker</span></h2>
+      </div>
+
+      <nav class="navbar">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="transactions.html" class="nav-link active">Transactions</a>
+        <a href="monthly.html" class="nav-link">Monthly Overview</a>
+        <a href="yearly.html" class="nav-link">Yearly Overview</a>
+      </nav>
+      <div class="header-actions">
+        <select class="currency-select" id="currencySelect">
+          <option value="NGN">₦ NGN</option>
+          <option value="USD">$ USD</option>
+          <option value="GBP">£ GBP</option>
+          <option value="EUR">€ EUR</option>
+          <option value="GHS">₵ GHS</option>
+          <option value="KES">KSh KES</option>
+        </select>
+
+        <div class="profile">A</div>
+      </div>
+    </header>
+    <main class="monthly-container">
+      <section class="monthly-header">
+        <div>
+          <h1>Monthly Overview</h1>
+          <p>Track your income, expenses, and spending habits.</p>
+        </div>
+
+        <select id="monthSelect" class="month-select">
+          <option value="01">January</option>
+          <option value="02">February</option>
+          <option value="03">March</option>
+          <option value="04">April</option>
+          <option value="05">May</option>
+          <option value="06">June</option>
+          <option value="07">July</option>
+          <option value="08">August</option>
+          <option value="09">September</option>
+          <option value="10">October</option>
+          <option value="11">November</option>
+          <option value="12">December</option>
+        </select>
+      </section>
+
+      <!-- SUMMARY CARDS -->
+      <section class="monthly-summary">
+        <div class="summary-card income-card">
+          <p>Total Income</p>
+          <h2 id="monthlyIncome">₦0.00</h2>
+        </div>
+
+        <div class="summary-card expense-card">
+          <p>Total Expenses</p>
+          <h2 id="monthlyExpenses">₦0.00</h2>
+        </div>
+
+        <div class="summary-card balance-card">
+          <p>Remaining Balance</p>
+          <h2 id="monthlyBalance">₦0.00</h2>
+        </div>
+      </section>
+
+      <!-- EXPENSE BREAKDOWN -->
+      <section class="category-section">
+        <div class="section-header">
+          <h2>Expense Breakdown</h2>
+          <p>See how your money is spent across different categories.</p>
+        </div>
+
+        <div id="categoryBreakdown" class="category-list"></div>
+      </section>
+    </main>
+
+    <script src="js/monthly.js"></script>
+  </body>
+</html>
